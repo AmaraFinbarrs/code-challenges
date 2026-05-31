@@ -1,6 +1,6 @@
 class Challenge < ApplicationRecord
-  validate :title, presence: true
-  validate :description, presence: true
-  validate :start_date, presence: true
-  validate :end_date, presence: true
+  validates :title, presence: true
+  validates :description, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
 end
