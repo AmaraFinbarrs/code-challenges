@@ -1,4 +1,5 @@
 class Api::V1::ChallengesController < ApplicationController
+  before_action :authenticate_user!, only: %i[ create update destroy ]
   before_action :set_challenge, only: %i[ show update destroy ]
 
   # GET /api/v1/challenges
@@ -14,7 +15,7 @@ class Api::V1::ChallengesController < ApplicationController
 
   # POST /api/v1/challenges
   def create
-    @challenge = Challenge.new(challenge_params)
+    @challenge = Challenge.new(challenge_params.merge(user_id: current_user.id))
 
     if @challenge.save
       render json: @challenge, status: :created
