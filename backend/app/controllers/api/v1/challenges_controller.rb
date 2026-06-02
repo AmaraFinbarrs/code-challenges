@@ -15,7 +15,7 @@ class Api::V1::ChallengesController < ApplicationController
 
   # POST /api/v1/challenges
   def create
-    @challenge = Challenge.new(challenge_params.merge(user_id: current_user.id))
+    @challenge = current_user.challenges.build(challenge_params)
 
     if @challenge.save
       render json: @challenge, status: :created
