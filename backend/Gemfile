@@ -48,3 +48,12 @@ group :development, :test do
   # Omakase Ruby styling [https://github.com/rails/rubocop-rails-omakase/]
   gem "rubocop-rails-omakase", require: false
 end
+
+# Add gem to allow CORS
+gem "rack-cors"
+# Handles advanced authentication and authorisation
+gem "devise"
+# Handles the use of JWT tokens
+gem "devise-jwt"
+# Serialize ruby objects in JSON format
+gem "jsonapi-serializer"

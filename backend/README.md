@@ -11,3 +11,12 @@
 - Participants
 - Submissions
 - Evaluations
+
+## Features
+
+- APIs for Challenges
+- Devise and JWT Tokens for User Authentication and Authorization. Funfacts about JWT Tokens
+  - unique for every user.
+  - expires after a certain time
+  - random string
+- APIs for Users

@@ -7,7 +7,7 @@ class Api::V1::ChallengesController < ApplicationController
     render json: @challenges
   end
 
-   # GET /api/v1/challenges/:id
+  # GET /api/v1/challenges/:id
   def show
     render json: @challenge
   end
@@ -50,6 +50,6 @@ class Api::V1::ChallengesController < ApplicationController
 
   # Only allow trusted parameters through
   def challenge_params
-    params.expect(challenges: [:title, :description, :start_date, :end_date])
+    params.expect(challenges: [ :title, :description, :start_date, :end_date ])
   end
 end
