@@ -322,7 +322,6 @@ Devise.setup do |config|
     ]
     jwt.revocation_requests = [
       [ "DELETE", %r{^/logout$} ],
-      [ "DELETE", %r{^/signup$} ]
     ]
 
     # Manually set token expiration time
