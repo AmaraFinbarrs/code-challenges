@@ -1,6 +1,7 @@
 class Api::V1::ChallengesController < ApplicationController
   before_action :authenticate_user!, only: %i[ create update destroy ]
   before_action :set_challenge, only: %i[ show update destroy ]
+  before_action :authorize_admin, only: %i[ create update destroy ]
 
   # GET /api/v1/challenges
   def index
@@ -52,5 +53,11 @@ class Api::V1::ChallengesController < ApplicationController
   # Only allow trusted parameters through
   def challenge_params
     params.expect(challenges: [ :title, :description, :start_date, :end_date ])
+  end
+
+  def authorize_admin
+    if current_user&.email != ENV["ADMIN_EMAIL"]
+      render json: { message: "Only admins can perform this action!" }
+    end
   end
 end
